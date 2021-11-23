@@ -1,0 +1,4 @@
+---
+listening_port: "2222"
+log_folder: "logs/"
+save_logs: true
