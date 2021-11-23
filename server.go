@@ -50,6 +50,8 @@ func main() {
 					log.Fatal(err)
 				}
 				log.SetOutput(file)
+			} else {
+				log.SetOutput(os.Stderr)
 			}
 			log.Println(fmt.Sprintf("[Action - %s] %s", s.RemoteAddr().String(), line))
 			io.WriteString(s, fmt.Sprintf("Input: %s\n", line))
@@ -65,6 +67,8 @@ func main() {
 				log.Fatal(err)
 			}
 			log.SetOutput(file)
+		} else {
+			log.SetOutput(os.Stderr)
 		}
 
 		// Set to return true. This can be modified to allow a config of different passwords or usernames.
