@@ -6,9 +6,9 @@ A while back I was working with [Cowrie](https://github.com/micheloosterhof/cowr
 
 GoPot can:
 
-- Accept a connection via SSH and authenticate (currently set to allow any user/pass combination)
+- Accept a connection via SSH and authenticate (currently set to allow any user/pass combination.)
 - Present a terminal to the user.
-- Log logins as well as actions performed by the user (which are currently being echoed back to them. This is not production ready.)
+- Log logins as well as actions performed by the user (it currently just responds with command not found. This is not production ready.)
 
 GoPot currently can not:
 

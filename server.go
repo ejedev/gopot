@@ -39,7 +39,8 @@ func main() {
 	ssh.Handle(func(s ssh.Session) {
 		log.Println(fmt.Sprintf("%s logged in as user %s", s.RemoteAddr().String(), s.User()))
 		// Simulating an ubuntu server prompt with the chosen name.
-		term := terminal.NewTerminal(s, fmt.Sprintf("[%s@ubuntu ~]$ ", s.User()))
+		io.WriteString(s, loginMessage)
+		term := terminal.NewTerminal(s, fmt.Sprintf("%s@ubuntu:~$ ", s.User()))
 		line := ""
 		for {
 			line, _ = term.ReadLine()
@@ -54,7 +55,7 @@ func main() {
 				log.SetOutput(os.Stderr)
 			}
 			log.Println(fmt.Sprintf("[Action - %s] %s", s.RemoteAddr().String(), line))
-			io.WriteString(s, fmt.Sprintf("Input: %s\n", line))
+			io.WriteString(s, fmt.Sprintf("%s: command not found\n", line))
 		}
 	})
 
